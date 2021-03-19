@@ -18,8 +18,11 @@ class Waiter
     Meal.new(self, customer, total, tip)
   end
   
-  def new_meal(waiter, total, tip=0)
-    Meal.new(waiter, self, total, tip)
+  def meals
+  Meal.all.select do |meal|
+    meal.waiter == self #checking for waiter now
   end
+end
+
   
 end
